@@ -1,0 +1,15 @@
+API_1:xxxxxxx_yyyyyyyy_zzzzzzzzzzz
+API_2:xxxxxxx_yyyyyyyy_zzzzzzzzzzz
+API_3:xxxxxxx_yyyyyyyy_zzzzzzzzzzz
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+				READ ME SECTION
+
+PLEASE VISIT https://isitarealemail.com/ and sign up for an api key. Copy the api key and paste it here. Get three API key using three login accounts and add the email addresses to the above apis as shown below. 
+
+API_1:xxxxxxx_yyyyyyyy_zzzzzzzzzzz
+API_2:xxxxxxx_yyyyyyyy_zzzzzzzzzzz
+API_3:xxxxxxx_yyyyyyyy_zzzzzzzzzzz
+
+The email addresses to validate are to be added into the loaded_email file and save them. 
+After all these are done, you can click the appliication to run it immediately. 
