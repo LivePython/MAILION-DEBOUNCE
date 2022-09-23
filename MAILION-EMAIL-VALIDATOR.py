@@ -59,7 +59,7 @@ def api_debounce_code(API, saved_file_name):
 
 
 @cache
-def validation_f():
+def main_func():
     print(ascii_image)
     try:
         api_debounce_code(my_api_key_1, saved_file_name)
@@ -72,70 +72,4 @@ def validation_f():
             pass
 
 
-@cache
-def check_hwid():
-    current_machine_id = str(subprocess.check_output('wmic csproduct get uuid'),
-                             'utf-8').split('\n')[1].strip()
-    # 4C4C4544-0057-3010-8059-C2C04F544E32 
-    if current_machine_id == "4C4C4544-0057-3010-8059-C2C04F544E32" or current_machine_id =="EC27E223-FF62-9642-6C61-A85BD44F3712" or current_machine_id =="8D6D2C11-CC4F-4C9D-B50A-C3C65E0E1CC6":
-        return True
-    else:
-        return False
-
-@cache
-def get_date():
-    try:
-        r = requests.get("https://www.calendardate.com/todays.htm")
-    except requests.exceptions.ConnectionError:
-        pass
-
-    else:
-        soup = BeautifulSoup(r.text, "html.parser")
-        a = soup.find_all(id="tprg")[6].get_text()
-        a = a.replace("-", "")
-        return a
-
-if check_hwid() == True:
-    limit = 20301010
-    try:
-        current_date = int(get_date())
-    except TypeError:
-        poor_network = '''
-                +-+-+-+-+-+-+-+ +-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+
-                        CHECK NETWORK, NO NETWORK AVAILABLE
-                +-+-+-+-+-+-+-+ +-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+
-                    '''
-        print(poor_network)
-        time.sleep(10000)
-    else:
-        if limit >= current_date:
-            validation_f()
-            ascii_done = '''
-                +-+-+-+-+-+-+-+ +-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+
-                            MAILS VALIDATION COMPLETED
-                        --------checked saved file---------
-                +-+-+-+-+-+-+-+ +-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+
-            '''
-            print(ascii_done)
-            time.sleep(10000)
-
-        else:
-            ascii_outdated = '''
-                +-+-+-+-+-+-+-+ +-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+
-                                APP OUTDATED
-                            ---contact developer---
-                            t.me/mailon_official
-                +-+-+-+-+-+-+-+ +-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+
-                        '''
-            print(ascii_outdated)
-            time.sleep(10000)
-else:
-    ascii_unauthorised = '''
-                +-+-+-+-+-+-+-+ +-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+
-                            UNAUTHORIZED USER
-                        ---contact developer---
-                            t.me/mailon_official
-                +-+-+-+-+-+-+-+ +-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+
-                            '''
-    print(ascii_unauthorised)
-    time.sleep(10000)
+main_func()
